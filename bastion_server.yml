@@ -1,3 +1,4 @@
+# bastion server
 bastion_ami: ami-0b5eea76982371e91
 region: 'us-east-1'
 myip: 192.168.43.178/32
