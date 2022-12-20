@@ -1,0 +1,22 @@
+vpc_name: "test_vpc"
+
+# vpc range
+vpcCidr: '172.16.0.0/16'
+
+# subnets range
+pubsub1: 172.16.1.0/24
+pubsub2: 172.16.2.0/24
+pubsub3: 172.16.3.0/24
+pvtsub1: 172.16.4.0/24
+pvtsub2: 172.16.5.0/24
+pvtsub3: 172.16.6.0/24
+
+# region name
+region: 'us-east-1'
+
+# zone names
+zone1: 'us-east-1a'
+zone2: 'us-east-1b'
+zone3: 'us-east-1c'
+
+state: present
