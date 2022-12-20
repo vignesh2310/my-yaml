@@ -3,7 +3,7 @@
   gather_facts: false
   tasks:
     - name: import vpc variables
-      include_vars: variables/vpc_setup
+      include_vars: vars/vpc_setup
 
     - name: create vpc
       ec2_vpc_net: 
