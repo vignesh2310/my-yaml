@@ -1,4 +1,4 @@
-# bastion server
+# bastion server txt
 
 bastion_ami: ami-0b5eea76982371e91
 region: "us-east-1"
