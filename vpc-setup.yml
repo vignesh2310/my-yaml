@@ -121,7 +121,7 @@
         subnet_id: "{{pubsub1_out.subnet.id}}"    
         wait: yes
         region: "{{region}}"
-        if_exist_dont_create: yes
+        if_exist_do_not_create: yes
       register: natgw_out
 
     - name: pvt subnet route table
