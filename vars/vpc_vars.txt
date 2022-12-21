@@ -1,4 +1,4 @@
-vpc_name: "my-vpc"
+vpc_name: "myvpc"
 
 # vpc range 
 vpcCidr: '172.20.0.0/16'
