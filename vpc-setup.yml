@@ -5,9 +5,9 @@
     - name: import vpc variables 
       include_vars: vars/vpc_vars.txt
 
-    - name: create test vpc
+    - name: create my vpc
       ec2_vpc_net:
-        name: "{{test_vpc}}"
+        name: "{{my-vpc}}"
         cidr_block: "{{vpcCidr}}"
         region: "{{region}}"
         dns_support: yes
