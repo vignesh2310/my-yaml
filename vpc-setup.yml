@@ -67,8 +67,8 @@
           name: mypvtsub1
       register: pvtsub1_out 
 
-   - name: create pvt subnet 2 in zone 2
-     ec2_vpc_subnet:
+    - name: create pvt subnet 2 in zone 2
+      ec2_vpc_subnet:
         vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
         az: "{{zone2}}"
@@ -79,8 +79,8 @@
           name: mypvtsub2
       register: pvtsub2_out    
 
-   - name: create pvt subnet 3 in zone 3
-     ec2_vpc_subnet:
+    - name: create pvt subnet 3 in zone 3
+      ec2_vpc_subnet:
         vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
         az: "{{zone3}}"
