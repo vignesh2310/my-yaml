@@ -27,7 +27,7 @@
         state: "{{state}}"
         cidr: "{{pubsub1cidr}}"
         map_public: yes
-        resource_tags:
+        tags:
           name: mypubsub1
       register: pubsub1_out    
 
@@ -39,7 +39,7 @@
         state: "{{state}}"
         cidr: "{{pubsub2cidr}}"
         map_public: yes
-        resource_tags:
+        tags:
           name: mypubsub2
       register: pubsub2_out 
 
@@ -51,6 +51,6 @@
         state: "{{state}}"
         cidr: "{{pubsub3cidr}}"
         map_public: yes
-        resource_tags:
+        tags:
           name: mypubsub3
       register: pubsub3_out 
