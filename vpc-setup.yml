@@ -90,3 +90,14 @@
         tags:
           name: mypvtsub3
       register: pvtsub3_out    
+
+    - name: adding igw setup
+      ec2_vpc_igw:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{region}}"
+        state: "{{state}}"
+        tags:
+          name: my_igw
+      register: igw_out
+
+        
