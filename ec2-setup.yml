@@ -1,26 +1,24 @@
 ---
-- name: ec2 setup
+- name: Setup ec2 Stack
   hosts: localhost
   connection: local
-  gather_facts: false
+  gather_facts: no
   tasks:
-    - name: import vpc variables
+    - name: Import VPC setup Variable
       include_vars: vars/output_vars
 
-    - name: import stacksetup vars
+    - name: Import vprofile setup Variable
       include_vars: vars/stacksetup
-    
-    - name: create ec2 key
+
+    - name: Create vprofile ec2 key
       ec2_key:
-        name: myec2key
+        name: vprokey
         region: "{{region}}"
-      register: myec2key_out
+      register: vprokey_out
 
-
-    - name: Save private key into file loginkey_ec2.pem
+    - name: Save private key into file loginkey_vpro.pem
       copy:
-        content: "{{myec2key_out.key.private_key}}"
-        dest: "./loginkey_ec2.pem"
+        content: "{{vprokey_out.key.private_key}}"
+        dest: "./loginkey_vpro.pem"
         mode: 0600
-      when: myec2key_out.changed
-    
+      when: vprokey_out.changed
