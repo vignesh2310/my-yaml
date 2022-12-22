@@ -17,10 +17,10 @@
       register: myec2key_out
 
 
-    - name: Save private key into file loginkeyec2.pem
+    - name: Save private key into file loginkey_ec2.pem
       copy:
         content: "{{myec2key_out.key.private_key}}"
-        dest: "./loginkeyec2.pem"
+        dest: "./loginkey_ec2.pem"
         mode: 0600
       when: myec2key_out.changed
     
