@@ -20,3 +20,8 @@ zone2: us-east-1b
 zone3: us-east-1c
 
 state: present
+
+# bastion server vars
+
+bastion_ami: ami-0b5eea76982371e91
+MYIP: 192.168.43.178/32

@@ -1,5 +1,0 @@
-# bastion server txt
-
-bastion_ami: ami-0b5eea76982371e91
-region: "us-east-1"
-MYIP: 192.168.43.178/32
