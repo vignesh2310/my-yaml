@@ -1,0 +1,26 @@
+---
+- name: ec2 setup
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: import vpc variables
+      include_vars: vars/output_vars
+
+    - name: import stacksetup vars
+      include_vars: vars/stacksetup
+
+    - name: Create my ec2 key
+      ec2_key:
+        name: myec2key
+        region: "{{region}}"
+      register: myec2key_out
+
+
+    - name: Save private key into file loginkeyec2.pem
+      copy:
+        content: "{{myec2key_out.key.private_key}}"
+        dest: "./loginkeyec2.pem"
+        mode: 0600
+      when: myec2key_out.changed
+    
