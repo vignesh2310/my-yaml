@@ -9,11 +9,11 @@
 
     - name: import stacksetup vars
       include_vars: vars/stacksetup
-
+    
     - name: Create my ec2 key
       ec2_key:
         name: myec2key
-        region: "{{region}}"
+        region: "{{us-east-1}}"
       register: myec2key_out
 
 
