@@ -67,4 +67,113 @@
         rules:
           - proto: all
             group_id: "{{myec2sg_out.group_id}}"
-        
+
+    - name: Creating Nginx server
+      ec2:
+        key_name: myec2key
+        region: "{{region}}"
+        instance_type: t2.micro
+        image: "{{nginx_ami}}"
+        wait: yes
+        wait_timeout: 300
+        instance_tags:
+          Name: "nginx_server"
+          Project: mytest_project
+          Owner: vignesh
+        exact_count: 1
+        count_tag:
+          Name: "nginx_server"
+          Project: mytest_project
+          Owner: vignesh
+        group_id: "{{myec2sg_out.group_id}}"
+        vpc_subnet_id: "{{pvtsub1id}}"
+      register: nginx_out    
+
+
+    - name: Creating tomcat server
+      ec2:
+        key_name: myec2key
+        region: "{{region}}"
+        instance_type: t2.micro
+        image: "{{tomcat_ami}}"
+        wait: yes
+        wait_timeout: 300
+        instance_tags:
+          Name: "tomcat_server"
+          Project: mytest_project
+          Owner: vignesh
+        exact_count: 1
+        count_tag:
+          Name: "tomcat_server"
+          Project: mytest_project
+          Owner: vignesh
+        group_id: "{{myec2sg_out.group_id}}"
+        vpc_subnet_id: "{{pvtsub1id}}"
+      register: tomcat_out            
+
+
+    - name: Creating memcache
+      ec2:
+        key_name: myec2key
+        region: "{{region}}"
+        instance_type: t2.micro
+        image: "{{memcache_ami}}"
+        wait: yes
+        wait_timeout: 300
+        instance_tags:
+          Name: "memcache"
+          Project: mytest_project
+          Owner: vignesh
+        exact_count: 1
+        count_tag:
+          Name: "memcache"
+          Project: mytest_project
+          Owner: vignesh
+        group_id: "{{myec2sg_out.group_id}}"
+        vpc_subnet_id: "{{pvtsub1id}}"
+      register: memcache_out            
+
+
+    - name: Creating rabbit-mq
+      ec2:
+        key_name: myec2key
+        region: "{{region}}"
+        instance_type: t2.micro
+        image: "{{rmq_ami}}"
+        wait: yes
+        wait_timeout: 300
+        instance_tags:
+          Name: "rabbit"
+          Project: mytest_project
+          Owner: vignesh
+        exact_count: 1
+        count_tag:
+          Name: "rabbit"
+          Project: mytest_project
+          Owner: vignesh
+        group_id: "{{myec2sg_out.group_id}}"
+        vpc_subnet_id: "{{pvtsub1id}}"
+      register: rabbit_out
+
+    - name: Creating my-sql
+      ec2:
+        key_name: myec2key
+        region: "{{region}}"
+        instance_type: t2.micro
+        image: "{{mysql_ami}}"
+        wait: yes
+        wait_timeout: 300
+        instance_tags:
+          Name: "sql"
+          Project: mytest_project
+          Owner: vignesh
+        exact_count: 1
+        count_tag:
+          Name: "sql"
+          Project: mytest_project
+          Owner: vignesh
+        group_id: "{{myec2sg_out.group_id}}"
+        vpc_subnet_id: "{{pvtsub1id}}"
+      register: sql_out             
+
+      
