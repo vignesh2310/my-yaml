@@ -24,3 +24,36 @@
         mode: 0600
       when: myec2key_out.changed
     
+    - name: creating load balancer sec grp
+      ec2_group: 
+        name: mylb-sg
+        description: allow port 80 from everywhere and all port within sg
+        region: "{{region}}"
+        vpc_id: "{{vpcid}}"
+        rules:
+          - proto: tcp
+            from_port: 80
+            to_port: 80
+            cidr_ip: 0.0.0.0/0
+      register: mylbsg_out
+
+    - name: creating ec2 sec grp
+      ec2_group: 
+        name: myec2-sg
+        description: allow port 22 from everywhere and all port within sg
+        region: "{{region}}"
+        vpc_id: "{{vpcid}}"  
+        purge_rules: no
+        rules:
+          - proto: tcp
+            from_port: 80
+            to_port: 80
+            group_id: "{{mylbsg_out.group_id}}"
+
+          - proto: tcp
+            from_port: 22
+            to_port: 22
+            group_id: "{{bastionsgid}}"
+      register: myec2sg_out        
+
+        
