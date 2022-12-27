@@ -198,14 +198,14 @@
             instance_port: 80     
 
     - name: Insert/Update Hosts IP & Name in file provision-stack/group_vars/hostsip
-        blockinfile:
-          path: provision-stack/group_vars/hostsip
-          block: |
-            nginx_ip: {{ nginx_out.tagged_instances[0].private_ip }}
-            tomcat_ip: {{ tomcat_out.tagged_instances[0].private_ip }}
-            rabbit-mq_ip: {{ rabbit_out.tagged_instances[0].private_ip }}
-            memcache_ip: {{ memcache_out.tagged_instances[0].private_ip }}
-            my-sql_ip: {{ sql_out.tagged_instances[0].private_ip }}
+      blockinfile:
+        path: provision-stack/group_vars/hostsip
+        block: |
+          nginx_ip: {{ nginx_out.tagged_instances[0].private_ip }}
+          tomcat_ip: {{ tomcat_out.tagged_instances[0].private_ip }}
+          rabbit-mq_ip: {{ rabbit_out.tagged_instances[0].private_ip }}
+          memcache_ip: {{ memcache_out.tagged_instances[0].private_ip }}
+          my-sql_ip: {{ sql_out.tagged_instances[0].private_ip }}
        
 
     - name: Copy login key to provision_stack directory
