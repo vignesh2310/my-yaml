@@ -1,0 +1,7 @@
+# BEGIN ANSIBLE MANAGED BLOCK
+nginx_ip: 172.20.4.9
+tomcat_ip: 172.20.4.90
+rabbit-mq_ip: 172.20.4.162
+memcache_ip: 172.20.4.36
+my-sql_ip: 172.20.4.131
+# END ANSIBLE MANAGED BLOCK
