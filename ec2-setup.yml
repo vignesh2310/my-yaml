@@ -187,7 +187,7 @@
         instance_ids:
           - "{{ nginx_out.tagged_instances[0].id }}"
         purge_instance_ids: true
-        security_group_ids: "{{ lb-sg_out.group_id }}"
+        security_group_ids: "{{ mylbsg_out.group_id }}"
         subnets:
           - "{{ pubsub1id }}"
           - "{{ pubsub2id }}"
