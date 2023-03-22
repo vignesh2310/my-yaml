@@ -1,4 +1,4 @@
-vpc_name: "myvpc"
+vpc_name: "ansiblevpc"
 
 # vpc range 
 vpcCidr: '172.20.0.0/16'
@@ -12,12 +12,12 @@ pvtsub2cidr: 172.20.5.0/24
 pvtsub3cidr: 172.20.6.0/24
 
 # region
-region: "us-east-1"
+region: "us-east-2"
 
 # zones
-zone1: us-east-1a
-zone2: us-east-1b
-zone3: us-east-1c
+zone1: us-east-2a
+zone2: us-east-2b
+zone3: us-east-2c
 
 state: present
 
@@ -25,4 +25,4 @@ state: present
 
 bastion_ami: ami-0b5eea76982371e91
 MYIP: 192.168.43.178/32
-region: "us-east-1"
+region: "us-east-2"
