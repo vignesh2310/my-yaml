@@ -23,6 +23,6 @@ state: present
 
 # bastion server vars
 
-bastion_ami: ami-0b5eea76982371e91
+bastion_ami: ami-05502a22127df2492
 MYIP: 192.168.43.178/32
 region: "us-east-2"
